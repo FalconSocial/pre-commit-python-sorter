@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/FalconSocial/pre-commit-python-sorter.svg?branch=master)](https://travis-ci.org/FalconSocial/pre-commit-python-sorter)
+
+
 Pre-commit python module sorter
 ===============================
 
