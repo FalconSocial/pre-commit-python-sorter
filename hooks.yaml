@@ -1,0 +1,6 @@
+- id: python-import-sorter
+  name: Sort python imports
+  description: This hook sorts python imports.
+  entry: python-import-sorter
+  language: python
+  files: \.(py)$
