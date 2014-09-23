@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/FalconSocial/pre-commit-python-sorter.svg?branch=master)](https://travis-ci.org/FalconSocial/pre-commit-python-sorter)
+[![Coverage Status](https://img.shields.io/coveralls/FalconSocial/pre-commit-python-sorter.svg)](https://coveralls.io/r/FalconSocial/pre-commit-python-sorter)
 
 
 Pre-commit python module sorter
