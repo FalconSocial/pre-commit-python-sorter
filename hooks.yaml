@@ -3,4 +3,4 @@
   description: This hook sorts python imports.
   entry: python-import-sorter
   language: python
-  files: \.(py)$
+  files: \.py$
