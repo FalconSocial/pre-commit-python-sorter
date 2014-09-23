@@ -14,7 +14,7 @@ This is a [pre-commit](https://github.com/pre-commit) hook that will sort your i
 Add this to your ``.pre-commit-config.yaml`` file
 
     - repo: git@github.com:FalconSocial/pre-commit-python-sorter.git
-      sha: cfc218a
+      sha: HEAD
       hooks:
       - id: python-import-sorter
         args: ['--diff-only']  # Will show only the diff and let you know that something is up

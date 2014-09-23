@@ -3,7 +3,7 @@ import argparse
 from isort import isort
 
 
-def main(argv):
+def main(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument('filenames', nargs='*', help='Filenames to run')
     parser.add_argument('--diff-only', action='store_true', dest='diff_only')
