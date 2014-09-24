@@ -7,8 +7,6 @@ python:
 install:
   - "pip install -r requirements-dev.txt"
   - "pip install coveralls"
-before_script:
-  - "mkdir -p /home/travis/pre-commit-python-sorter/tests/resources"
 script: "py.test --cov pre_commit_hook tests/"
 after_success:
   - coveralls
