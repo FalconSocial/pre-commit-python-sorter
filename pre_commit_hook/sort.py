@@ -10,18 +10,17 @@ def main(argv=None):
     parser.set_defaults(diff_only=False)
     args = parser.parse_args(argv)
 
-    fail = False
+    return_value = 0
 
     for filename in args.filenames:
         if args.diff_only:
             isort.SortImports(filename, show_diff=True)
             output = isort.SortImports(filename, check=True)
-            fail = output.incorrectly_sorted
+            if output.incorrectly_sorted is True:
+                return_value = 1
         else:
             isort.SortImports(filename)
-    if fail is True:
-        return 1
-    return 0
+    return return_value
 
 if __name__ == '__main__':
     exit(main())
