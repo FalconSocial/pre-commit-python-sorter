@@ -11,12 +11,12 @@ def _create(path, content):
         f.write(content)
 
 def create_correct_ordered_file(i):
-    file_path = '{}/correct_{}.py'.format(base_dir, i)
+    file_path = '{0}/correct_{1}.py'.format(base_dir, i)
     content = 'import json\nimport sys\n'
     _create(file_path, content)
 
 def create_incorrectly_ordered_file(i):
-    file_path = '{}/incorrect_{}.py'.format(base_dir, i)
+    file_path = '{0}/incorrect_{1}.py'.format(base_dir, i)
     content = 'import sys\n\n\nimport json\n'
     _create(file_path, content)
 
@@ -27,10 +27,10 @@ def setup_function(function):
     create_incorrectly_ordered_file(3)
 
 def teardown_function(function):
-    os.remove('{}/correct_1.py'.format(base_dir))
-    os.remove('{}/incorrect_1.py'.format(base_dir))
-    os.remove('{}/incorrect_2.py'.format(base_dir))
-    os.remove('{}/incorrect_3.py'.format(base_dir))
+    os.remove('{0}/correct_1.py'.format(base_dir))
+    os.remove('{0}/incorrect_1.py'.format(base_dir))
+    os.remove('{0}/incorrect_2.py'.format(base_dir))
+    os.remove('{0}/incorrect_3.py'.format(base_dir))
 
 @pytest.mark.parametrize(('args', 'expected_retval'), (
     (['tests/resources/correct_1.py'], 0),
