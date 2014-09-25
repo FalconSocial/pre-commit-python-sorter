@@ -4,39 +4,20 @@ import pytest
 from pre_commit_hook.sort import main
 
 
-base_dir = 'tests/resources'
+def write_file(filename, contents):
+    with open(filename, 'w') as file_obj:
+        file_obj.write(contents)
 
-def _create(path, content):
-    with open(path, 'w') as f:
-        f.write(content)
+@pytest.fixture
+def tmpfiles(tmpdir):
+    write_file(tmpdir.join('correct_1.py').strpath, 'import json\nimport sys\n')
+    write_file(tmpdir.join('incorrect_1.py').strpath, 'import sys\n\n\nimport json\n')
+    write_file(tmpdir.join('incorrect_2.py').strpath, 'import sys\n\n\nimport json\n')
+    write_file(tmpdir.join('incorrect_3.py').strpath, 'import sys\n\n\nimport json\n')
+    return tmpdir
 
-def create_correct_ordered_file(i):
-    file_path = '{0}/correct_{1}.py'.format(base_dir, i)
-    content = 'import json\nimport sys\n'
-    _create(file_path, content)
-
-def create_incorrectly_ordered_file(i):
-    file_path = '{0}/incorrect_{1}.py'.format(base_dir, i)
-    content = 'import sys\n\n\nimport json\n'
-    _create(file_path, content)
-
-def setup_function(function):
-    create_correct_ordered_file(1)
-    create_incorrectly_ordered_file(1)
-    create_incorrectly_ordered_file(2)
-    create_incorrectly_ordered_file(3)
-
-def teardown_function(function):
-    os.remove('{0}/correct_1.py'.format(base_dir))
-    os.remove('{0}/incorrect_1.py'.format(base_dir))
-    os.remove('{0}/incorrect_2.py'.format(base_dir))
-    os.remove('{0}/incorrect_3.py'.format(base_dir))
-
-@pytest.mark.parametrize(('args', 'expected_retval'), (
-    (['tests/resources/correct_1.py'], 0),
-    (['tests/resources/incorrect_1.py', '--diff-only'], 1),
-    (['tests/resources/incorrect_2.py'], 1),
-    (['tests/resources/incorrect_3.py', '--silent-overwrite'], 0),
-))
-def test_check_sort(args, expected_retval):
-    assert main(args) == expected_retval
+def test_sort(tmpfiles):    
+    assert main([tmpfiles.join('correct_1.py').strpath]) == 0
+    assert main([tmpfiles.join('incorrect_1.py').strpath, '--diff-only']) == 1
+    assert main([tmpfiles.join('incorrect_2.py').strpath]) == 1
+    assert main([tmpfiles.join('incorrect_3.py').strpath, '--silent-overwrite']) == 0
