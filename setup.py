@@ -11,7 +11,7 @@ setup(
     name='pre_commit_python_sort',
     description='A pre-commit hook to sort your python imports.',
     url='https://github.com/pre-commit/pre-commit-hooks',
-    version='0.0.2',
+    version='0.0.3',
 
     author='Kasper Jacobsen',
     author_email='k@mackwerk.dk',
