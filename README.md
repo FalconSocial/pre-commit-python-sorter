@@ -15,16 +15,17 @@ imports for you (or show you how it should be done).
 Add this to your ``.pre-commit-config.yaml`` file
 
     - repo: git@github.com:FalconSocial/pre-commit-python-sorter.git
-      sha: 0.0.2
+      sha: 1.0.0
       hooks:
       - id: python-import-sorter
-        args: ['--diff-only']
+        args: ['--silent-overwrite']
 
 Available flags:
 
-* ``--diff-only``: Will show only the diff and let you know that something is up.
 * ``--silent-overwrite``: The hook won't fail if it has to change files. It will
     just do it.
+
+The hook supports [isort's configuration files](https://github.com/timothycrosley/isort#configuring-isort) - Please refer to the isort documentation for reference
 
 Development: ``pip install -r requirements-dev.txt``
 
