@@ -19,8 +19,7 @@ def main(argv=None):
         if args.silent is False:
             if imports_incorrect(filename) is True:
                 return_value = 1
-        else:
-            isort.SortImports(filename)
+        isort.SortImports(filename)
     return return_value
 
 if __name__ == '__main__':
