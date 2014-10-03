@@ -1,4 +1,5 @@
 import argparse
+import os
 
 from isort import isort
 
@@ -16,10 +17,11 @@ def main(argv=None):
     return_value = 0
 
     for filename in args.filenames:
+        isort.SortImports(filename)
         if args.silent is False:
             if imports_incorrect(filename) is True:
                 return_value = 1
-        isort.SortImports(filename)
+            print 'FIXED: {}'.format(os.path.abspath(filename))
     return return_value
 
 if __name__ == '__main__':
