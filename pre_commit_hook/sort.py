@@ -1,6 +1,6 @@
+from __future__ import print_function
 import argparse
 import os
-from __future__ import print_function
 
 from isort import isort
 
