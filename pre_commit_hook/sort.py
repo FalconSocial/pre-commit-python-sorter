@@ -17,11 +17,13 @@ def main(argv=None):
     return_value = 0
 
     for filename in args.filenames:
-        if args.silent is False:
-            if imports_incorrect(filename) is True:
+        if imports_incorrect(filename) is True:
+            if args.silent is False:
                 return_value =  1
-            print 'FIXED: {0}'.format(os.path.abspath(filename))
-        isort.SortImports(filename)
+                isort.SortImports(filename)
+                print 'FIXED: {0}'.format(os.path.abspath(filename))
+            else:
+                isort.SortImports(filename)
     return return_value
 
 if __name__ == '__main__':
