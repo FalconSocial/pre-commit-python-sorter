@@ -1,5 +1,6 @@
 import argparse
 import os
+from __future__ import print_function
 
 from isort import isort
 
@@ -21,7 +22,7 @@ def main(argv=None):
             if args.silent is False:
                 return_value =  1
                 isort.SortImports(filename)
-                print 'FIXED: {0}'.format(os.path.abspath(filename))
+                print('FIXED: {0}'.format(os.path.abspath(filename)))
             else:
                 isort.SortImports(filename)
     return return_value
