@@ -10,8 +10,8 @@ if sys.version_info < (2, 7):
 setup(
     name='pre_commit_python_sort',
     description='A pre-commit hook to sort your python imports.',
-    url='https://github.com/pre-commit/pre-commit-hooks',
-    version='1.0.0',
+    url='https://github.com/FalconSocial/pre-commit-python-sorter',
+    version='1.0.1',
 
     author='Kasper Jacobsen',
     author_email='k@mackwerk.dk',
