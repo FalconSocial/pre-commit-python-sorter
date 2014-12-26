@@ -3,6 +3,7 @@
 from __future__ import print_function
 import argparse
 import os
+import sys
 
 from isort import isort
 
@@ -18,6 +19,8 @@ def main(argv=None):
     args = parser.parse_args(argv)
 
     return_value = 0
+
+    print('Using executable @ {}'.format(sys.executable))
 
     for filename in args.filenames:
         if imports_incorrect(filename) is True:
