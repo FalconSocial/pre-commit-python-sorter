@@ -2,5 +2,5 @@
   name: Sort python imports
   description: This hook sorts python imports.
   entry: python-import-sorter
-  language: python
+  language: system
   files: \.py$
