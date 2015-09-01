@@ -2,7 +2,7 @@ import sys
 from setuptools import find_packages
 from setuptools import setup
 
-install_requires = ['isort']
+install_requires = ['isort>=4.1.1,<5']
 if sys.version_info < (2, 7):
     install_requires.append('argparse')
 
@@ -11,7 +11,7 @@ setup(
     name='pre_commit_python_sort',
     description='A pre-commit hook to sort your python imports.',
     url='https://github.com/FalconSocial/pre-commit-python-sorter',
-    version='1.0.1',
+    version='1.0.2',
 
     author='Kasper Jacobsen',
     author_email='k@mackwerk.dk',
