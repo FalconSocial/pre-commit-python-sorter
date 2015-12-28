@@ -24,6 +24,9 @@ Available flags:
 
 * ``--silent-overwrite``: The hook won't fail if it has to change files. It will
     just do it.
+* ``--check-only``: The hook will not change any files.
+* ``--diff``: If imports are not ordered correctly, print a diff of required
+    changes to fix the import order.
 
 The hook supports [isort's configuration files](https://github.com/timothycrosley/isort#configuring-isort) - Please refer to the isort documentation for reference
 

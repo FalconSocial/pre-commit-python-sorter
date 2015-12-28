@@ -1,4 +1,5 @@
 import pytest
+from isort.isort import stdout
 
 from pre_commit_hook.sort import main
 
@@ -21,3 +22,20 @@ def test_sort(tmpfiles):
     assert main([tmpfiles.join('incorrect_1.py').strpath]) == 1
     assert main([tmpfiles.join('incorrect_2.py').strpath, '--check-only']) == 1
     assert main([tmpfiles.join('incorrect_2.py').strpath, '--silent-overwrite']) == 0
+
+
+def test_sort_with_diff(tmpfiles):
+    filename = tmpfiles.join('incorrect_1.py').strpath
+    main(['--diff', '--check-only', filename])
+
+    stdout.seek(0)
+    lines = stdout.read().splitlines()
+    # Skip diff header
+    lines = lines[4:]
+    assert lines == [
+        '+import json',
+        ' import sys',
+        '-',
+        '-',
+        '-import json',
+    ]
