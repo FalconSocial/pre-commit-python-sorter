@@ -15,7 +15,7 @@ imports for you (or show you how it should be done).
 Add this to your ``.pre-commit-config.yaml`` file
 
     - repo: git://github.com/FalconSocial/pre-commit-python-sorter
-      sha: 1.0.1
+      sha: 1.0.4
       hooks:
       - id: python-import-sorter
         args: ['--silent-overwrite']
