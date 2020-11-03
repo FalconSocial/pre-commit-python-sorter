@@ -1,3 +1,6 @@
+| :exclamation:  This project is no longer maintained, and should be replaced with a different project such as isort.   |
+|---------------------------------------------------------------------------------------------------------------------|
+
 [![Build Status](https://travis-ci.org/FalconSocial/pre-commit-python-sorter.svg?branch=master)](https://travis-ci.org/FalconSocial/pre-commit-python-sorter)
 [![Coverage Status](https://img.shields.io/coveralls/FalconSocial/pre-commit-python-sorter.svg)](https://coveralls.io/r/FalconSocial/pre-commit-python-sorter)
 
